@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TCAS Calculate</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="app-container">
+        <header>
+            <h1>TCAS Calculate</h1>
+        </header>
+
+        <nav class="menu-nav">
+            <button id="btn-menu-home" onclick="switchMenu('home')">หน้าแรก</button>
+            <button id="btn-menu-calc" onclick="switchMenu('calc')">คำนวณคะแนน</button>
+            <button id="btn-menu-plan" onclick="switchMenu('plan')">วางแผนคะแนน</button>
+        </nav>
+
+        <div id="menu-home" class="content-section">
+            
+            <div id="countdown-banner" class="countdown-hero" style="display: none;">
+                <div class="hero-header">
+                    <span class="hero-icon">⏳</span> นับถอยหลังสู่...
+                </div>
+                
+                <div id="event-title" class="hero-title">กำลังโหลด...</div>
+                
+                <div class="timer-grid">
+                    <div class="timer-box">
+                        <span id="days" class="timer-num">00</span>
+                        <span class="timer-label">วัน</span>
+                    </div>
+                    <div class="timer-sep">:</div>
+                    <div class="timer-box">
+                        <span id="hours" class="timer-num">00</span>
+                        <span class="timer-label">ชม.</span>
+                    </div>
+                    <div class="timer-sep">:</div>
+                    <div class="timer-box">
+                        <span id="minutes" class="timer-num">00</span>
+                        <span class="timer-label">นาที</span>
+                    </div>
+                    <div class="timer-sep">:</div>
+                    <div class="timer-box highlight-box">
+                        <span id="seconds" class="timer-num">00</span>
+                        <span class="timer-label">วินาที</span>
+                    </div>
+                </div>
+                
+                <div id="event-date-display" class="hero-date"></div>
+            </div>
+
+            <div class="event-list-wrapper">
+                <h3>📅 ปฏิทินกำหนดการ TCAS69</h3>
+                <div id="event-list-container"></div>
+            </div>
+        </div>
+
+        <div id="menu-calc" class="content-section" style="display: none;">
+            
+            <div id="system-closed-msg" class="closed-alert" style="display: none;">
+                <h3>Coming Soon</h3>
+            </div>
+
+            <div id="calc-content">
+                <h2>คำนวณคะแนน (Admission)</h2>
+                
+                <section id="step1" class="active-step">
+                    <p class="step-label">1. เลือกวิชาและกรอกคะแนน</p>
+                    
+                    <div class="subject-list">
+                        <div class="group-label">TGAT & TPAT</div>
+                        <div class="subject-item"><label><input type="checkbox" value="TGAT1"> TGAT1 การสื่อสารภาษาอังกฤษ</label><input type="number" id="score-TGAT1" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="TGAT2"> TGAT2 การคิดอย่างมีเหตุผล</label><input type="number" id="score-TGAT2" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="TGAT3"> TGAT3 สมรรถนะการทำงาน</label><input type="number" id="score-TGAT3" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="TPAT21"> TPAT21 ทัศนศิลป์</label><input type="number" id="score-TPAT21" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="TPAT22"> TPAT22 ดนตรี</label><input type="number" id="score-TPAT22" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="TPAT23"> TPAT23 นาฏศิลป์</label><input type="number" id="score-TPAT23" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="TPAT3"> TPAT3 ความถนัดด้านวิทยาศาสตร์ เทคโนโลยี และวิศวกรรมศาสตร์</label><input type="number" id="score-TPAT3" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="TPAT4"> TPAT4 ความถนัดทางสถาปัตยกรรม</label><input type="number" id="score-TPAT4" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="TPAT5"> TPAT5 ความถนัดครุศาสตร์-ศึกษาศาสตร์</label><input type="number" id="score-TPAT5" disabled></div>
+
+                        <div class="group-label">A-Level</div>
+                        <div class="subject-item"><label><input type="checkbox" value="Math1"> A-Level คณิตศาสตร์ประยุกต์ 1</label><input type="number" id="score-Math1" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Math2"> A-Level คณิตศาสตร์ประยุกต์ 2</label><input type="number" id="score-Math2" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Sci"> A-Level วิทยาศาสตร์ประยุกต์</label><input type="number" id="score-Sci" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Phy"> A-Level ฟิสิกส์</label><input type="number" id="score-Phy" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Chem"> A-Level เคมี</label><input type="number" id="score-Chem" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Bio"> A-Level ชีววิทยา</label><input type="number" id="score-Bio" disabled></div>
+                        
+                        <div class="subject-item"><label><input type="checkbox" value="Soc"> A-Level สังคมศึกษา</label><input type="number" id="score-Soc" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Thai"> A-Level ภาษาไทย</label><input type="number" id="score-Thai" disabled></div>
+                        
+                        <div class="subject-item"><label><input type="checkbox" value="Eng"> A-Level ภาษาอังกฤษ</label><input type="number" id="score-Eng" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Fra"> A-Level ภาษาฝรั่งเศส</label><input type="number" id="score-Fra" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Deu"> A-Level ภาษาเยอรมัน</label><input type="number" id="score-Deu" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Jpn"> A-Level ภาษาญี่ปุ่น</label><input type="number" id="score-Jpn" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Kor"> A-Level ภาษาเกาหลี</label><input type="number" id="score-Kor" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Chn"> A-Level ภาษาจีน</label><input type="number" id="score-Chn" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Bal"> A-Level ภาษาบาลี</label><input type="number" id="score-Bal" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="Esp"> A-Level ภาษาสเปน</label><input type="number" id="score-Esp" disabled></div>
+                    </div>
+
+                    <button class="primary-btn" onclick="goToStep2()">ต่อไป (กำหนดน้ำหนัก) ➜</button>
+                </section>
+
+                <section id="step2" class="disabled-step">
+                    <hr>
+                    <p class="step-label">2. กรอกค่าน้ำหนัก (%)</p>
+                    <div id="weight-inputs"></div>
+                    
+                    <div class="result-display">
+                        รวม <span id="final-admission-score">0.00</span> คะแนน
+                    </div>
+
+                    <div class="btn-group">
+                        <button class="calc-btn" onclick="calculateAdmissionTotal()">⚡ คำนวณคะแนน</button>
+                        <button class="secondary-btn" onclick="backToStep1()">กลับไปแก้คะแนน</button>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div id="menu-plan" class="content-section" style="display: none;">
+            <h2>วางแผนคะแนน (Planner)</h2>
+            <p>อยากได้คะแนนเท่านี้... ต้องทำถูกกี่ข้อ?</p>
+
+            <div class="plan-controls">
+                <label>เลือกวิชา</label>
+                <select id="plan-subject">
+                    <optgroup label="TGAT">
+                        <option value="TGAT1">TGAT1 การสื่อสารภาษาอังกฤษ</option>
+                        <option value="TGAT2">TGAT2 การคิดอย่างมีเหตุผล</option>
+                        <option value="TGAT3">TGAT3 สมรรถนะการทำงาน</option>
+                    </optgroup>
+                    <optgroup label="TPAT">
+                        <option value="TPAT21">TPAT21 ทัศนศิลป์</option>
+                        <option value="TPAT22">TPAT22 ดนตรี</option>
+                        <option value="TPAT23">TPAT23 นาฏศิลป์</option>
+                        <option value="TPAT3">TPAT3 ความถนัดด้านวิทยาศาสตร์ เทคโนโลยี และวิศวกรรมศาสตร์</option>
+                        <option value="TPAT4">TPAT4 ความถนัดทางสถาปัตยกรรม</option>
+                        <option value="TPAT5">TPAT5 ความถนัดครุศาสตร์-ศึกษาศาสตร์</option>
+                    </optgroup>
+                    <optgroup label="A-Level">
+                        <option value="Math1">A-Level คณิตศาสตร์ประยุกต์ 1</option>
+                        <option value="Math2">A-Level คณิตศาสตร์ประยุกต์ 2</option>
+                        <option value="Sci">A-Level วิทยาศาสตร์ประยุกต์</option>
+                        <option value="Phy">A-Level ฟิสิกส์</option>
+                        <option value="Chem">A-Level เคมี</option>
+                        <option value="Bio">A-Level ชีววิทยา</option>
+                        <option value="Soc">A-Level สังคมศึกษา</option>
+                        <option value="Thai">A-Level ภาษาไทย</option>
+                        <option value="Eng">A-Level ภาษาอังกฤษ</option>
+                        <option value="Fra">A-Level ภาษาฝรั่งเศส</option>
+                        <option value="Deu">A-Level ภาษาเยอรมัน</option>
+                        <option value="Jpn">A-Level ภาษาญี่ปุ่น</option>
+                        <option value="Kor">A-Level ภาษาเกาหลี</option>
+                        <option value="Chn">A-Level ภาษาจีน</option>
+                        <option value="Bal">A-Level ภาษาบาลี</option>
+                        <option value="Esp">A-Level ภาษาสเปน</option>
+                    </optgroup>
+                </select>
+
+                <label>คะแนนเป้าหมาย (เต็ม 100)</label>
+                <input type="number" id="target-score" placeholder="เช่น 60">
+                
+                <button class="strategy-btn" onclick="calculatePlan()">วางแผน</button>
+            </div>
+
+            <div id="plan-result" class="result-box" style="display:none;"></div>
+        </div> <footer class="floating-footer">
+        </p> <a href="https://x.com/seesar1962" target="_blank" class="vib-vub-btn">
+            <span class="x-logo">𝕏</span> แจ้งปัญหาที่นี่เท่านั้น
+        </a>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
