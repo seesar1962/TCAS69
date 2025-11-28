@@ -8,7 +8,7 @@ body {
     min-height: 100vh;
     
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)), 
-                url('https://images.unsplash.com/photo-1596496050844-361d52e39958?q=80&w=2070&auto=format&fit=crop');
+                url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlhcdEREawaRNxQrxKJgQan2TTYdftWFXJUA&s');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -341,3 +341,4 @@ select { width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 6px; bo
     .timer-box { min-width: 45px; }
     .hero-title { font-size: 1.0rem; }
 }
+
