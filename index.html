@@ -18,42 +18,26 @@
             <button id="btn-menu-home" onclick="switchMenu('home')">หน้าแรก</button>
             <button id="btn-menu-calc" onclick="switchMenu('calc')">คำนวณคะแนน</button>
             <button id="btn-menu-plan" onclick="switchMenu('plan')">วางแผนคะแนน</button>
+            <button id="btn-menu-venue" onclick="switchMenu('venue')">สนามสอบ</button>
         </nav>
 
         <div id="menu-home" class="content-section">
-            
             <div id="countdown-banner" class="countdown-hero" style="display: none;">
                 <div class="hero-header">
                     <span class="hero-icon">⏳</span> นับถอยหลังสู่...
                 </div>
-                
                 <div id="event-title" class="hero-title">กำลังโหลด...</div>
-                
                 <div class="timer-grid">
-                    <div class="timer-box">
-                        <span id="days" class="timer-num">00</span>
-                        <span class="timer-label">วัน</span>
-                    </div>
+                    <div class="timer-box"><span id="days" class="timer-num">00</span><span class="timer-label">วัน</span></div>
                     <div class="timer-sep">:</div>
-                    <div class="timer-box">
-                        <span id="hours" class="timer-num">00</span>
-                        <span class="timer-label">ชม.</span>
-                    </div>
+                    <div class="timer-box"><span id="hours" class="timer-num">00</span><span class="timer-label">ชม.</span></div>
                     <div class="timer-sep">:</div>
-                    <div class="timer-box">
-                        <span id="minutes" class="timer-num">00</span>
-                        <span class="timer-label">นาที</span>
-                    </div>
+                    <div class="timer-box"><span id="minutes" class="timer-num">00</span><span class="timer-label">นาที</span></div>
                     <div class="timer-sep">:</div>
-                    <div class="timer-box highlight-box">
-                        <span id="seconds" class="timer-num">00</span>
-                        <span class="timer-label">วินาที</span>
-                    </div>
+                    <div class="timer-box highlight-box"><span id="seconds" class="timer-num">00</span><span class="timer-label">วินาที</span></div>
                 </div>
-                
                 <div id="event-date-display" class="hero-date"></div>
             </div>
-
             <div class="event-list-wrapper">
                 <h3>📅 ปฏิทินกำหนดการ TCAS69</h3>
                 <div id="event-list-container"></div>
@@ -61,17 +45,13 @@
         </div>
 
         <div id="menu-calc" class="content-section" style="display: none;">
-            
             <div id="system-closed-msg" class="closed-alert" style="display: none;">
                 <h3>Coming Soon</h3>
             </div>
-
             <div id="calc-content">
                 <h2>คำนวณคะแนน (Admission)</h2>
-                
                 <section id="step1" class="active-step">
                     <p class="step-label">1. เลือกวิชาและกรอกคะแนน</p>
-                    
                     <div class="subject-list">
                         <div class="group-label">TGAT & TPAT</div>
                         <div class="subject-item"><label><input type="checkbox" value="TGAT1"> TGAT1 การสื่อสารภาษาอังกฤษ</label><input type="number" id="score-TGAT1" disabled></div>
@@ -81,7 +61,7 @@
                         <div class="subject-item"><label><input type="checkbox" value="TPAT22"> TPAT22 ดนตรี</label><input type="number" id="score-TPAT22" disabled></div>
                         <div class="subject-item"><label><input type="checkbox" value="TPAT23"> TPAT23 นาฏศิลป์</label><input type="number" id="score-TPAT23" disabled></div>
                         <div class="subject-item"><label><input type="checkbox" value="TPAT3"> TPAT3 ความถนัดด้านวิทยาศาสตร์ เทคโนโลยี และวิศวกรรมศาสตร์</label><input type="number" id="score-TPAT3" disabled></div>
-                        <div class="subject-item"><label><input type="checkbox" value="TPAT4"> TPAT4 ความถนัดทางสถาปัตยกรรม</label><input type="number" id="score-TPAT4" disabled></div>
+                        <div class="subject-item"><label><input type="checkbox" value="TPAT4"> TPAT4 ความถนัดทางสถาปัตยกรรมศาสตร์</label><input type="number" id="score-TPAT4" disabled></div>
                         <div class="subject-item"><label><input type="checkbox" value="TPAT5"> TPAT5 ความถนัดครุศาสตร์-ศึกษาศาสตร์</label><input type="number" id="score-TPAT5" disabled></div>
 
                         <div class="group-label">A-Level</div>
@@ -91,10 +71,8 @@
                         <div class="subject-item"><label><input type="checkbox" value="Phy"> A-Level ฟิสิกส์</label><input type="number" id="score-Phy" disabled></div>
                         <div class="subject-item"><label><input type="checkbox" value="Chem"> A-Level เคมี</label><input type="number" id="score-Chem" disabled></div>
                         <div class="subject-item"><label><input type="checkbox" value="Bio"> A-Level ชีววิทยา</label><input type="number" id="score-Bio" disabled></div>
-                        
                         <div class="subject-item"><label><input type="checkbox" value="Soc"> A-Level สังคมศึกษา</label><input type="number" id="score-Soc" disabled></div>
                         <div class="subject-item"><label><input type="checkbox" value="Thai"> A-Level ภาษาไทย</label><input type="number" id="score-Thai" disabled></div>
-                        
                         <div class="subject-item"><label><input type="checkbox" value="Eng"> A-Level ภาษาอังกฤษ</label><input type="number" id="score-Eng" disabled></div>
                         <div class="subject-item"><label><input type="checkbox" value="Fra"> A-Level ภาษาฝรั่งเศส</label><input type="number" id="score-Fra" disabled></div>
                         <div class="subject-item"><label><input type="checkbox" value="Deu"> A-Level ภาษาเยอรมัน</label><input type="number" id="score-Deu" disabled></div>
@@ -104,19 +82,13 @@
                         <div class="subject-item"><label><input type="checkbox" value="Bal"> A-Level ภาษาบาลี</label><input type="number" id="score-Bal" disabled></div>
                         <div class="subject-item"><label><input type="checkbox" value="Esp"> A-Level ภาษาสเปน</label><input type="number" id="score-Esp" disabled></div>
                     </div>
-
                     <button class="primary-btn" onclick="goToStep2()">ต่อไป (กำหนดน้ำหนัก) ➜</button>
                 </section>
-
                 <section id="step2" class="disabled-step">
                     <hr>
                     <p class="step-label">2. กรอกค่าน้ำหนัก (%)</p>
                     <div id="weight-inputs"></div>
-                    
-                    <div class="result-display">
-                        รวม <span id="final-admission-score">0.00</span> คะแนน
-                    </div>
-
+                    <div class="result-display">รวม <span id="final-admission-score">0.00</span> คะแนน</div>
                     <div class="btn-group">
                         <button class="calc-btn" onclick="calculateAdmissionTotal()">⚡ คำนวณคะแนน</button>
                         <button class="secondary-btn" onclick="backToStep1()">กลับไปแก้คะแนน</button>
@@ -142,7 +114,7 @@
                         <option value="TPAT22">TPAT22 ดนตรี</option>
                         <option value="TPAT23">TPAT23 นาฏศิลป์</option>
                         <option value="TPAT3">TPAT3 ความถนัดด้านวิทยาศาสตร์ เทคโนโลยี และวิศวกรรมศาสตร์</option>
-                        <option value="TPAT4">TPAT4 ความถนัดทางสถาปัตยกรรม</option>
+                        <option value="TPAT4">TPAT4 ความถนัดทางสถาปัตยกรรมศาสตร์</option>
                         <option value="TPAT5">TPAT5 ความถนัดครุศาสตร์-ศึกษาศาสตร์</option>
                     </optgroup>
                     <optgroup label="A-Level">
@@ -164,16 +136,49 @@
                         <option value="Esp">A-Level ภาษาสเปน</option>
                     </optgroup>
                 </select>
-
                 <label>คะแนนเป้าหมาย (เต็ม 100)</label>
                 <input type="number" id="target-score" placeholder="เช่น 60">
-                
                 <button class="strategy-btn" onclick="calculatePlan()">วางแผน</button>
             </div>
-
             <div id="plan-result" class="result-box" style="display:none;"></div>
-        </div> <footer class="floating-footer">
-        </p> <a href="https://x.com/seesar1962" target="_blank" class="vib-vub-btn">
+        </div>
+
+        <div id="menu-venue" class="content-section" style="display: none;">
+            <h2>ค้นหาสนามสอบ (กทม./ปริมณฑล)</h2>
+            
+            <div class="venue-mode-selector">
+                <button id="btn-venue-tgat" class="mode-btn active" onclick="selectVenueMode('TGAT')">TGAT/TPAT</button>
+                <button id="btn-venue-alevel" class="mode-btn locked" onclick="selectVenueMode('ALevel')">A-Level</button>
+            </div>
+
+            <div id="venue-content-tgat">
+                <div class="filter-box">
+                    <label>1. เลือกวิชาที่จะสอบ:</label>
+                    <select id="venue-subject-select" onchange="updateExamTypeOptions()">
+                        <option value="">กรุณาเลือกวิชา</option>
+                        <option value="TGAT">TGAT ความถนัดทั่วไป</option>
+                        <option value="TPAT2">TPAT2 ความถนัดทางศิลปกรรมศาสตร์</option>
+                        <option value="TPAT3">TPAT3 ความถนัดด้านวิทยาศาสตร์ เทคโนโลยี และวิศวกรรมศาสตร์</option>
+                        <option value="TPAT4">TPAT4 ความถนัดทางสถาปัตยกรรมศาสตร์</option>
+                        <option value="TPAT5">TPAT5 ความถนัดครุศาสตร์-ศึกษาศาสตร์</option>
+                    </select>
+
+                    <label>2. รูปแบบการสอบ:</label>
+                    <div class="exam-type-group">
+                        <button class="type-btn" id="btn-pbt" onclick="setExamType('PBT')">📝 กระดาษ (PBT)</button>
+                        <button class="type-btn" id="btn-cbt" onclick="setExamType('CBT')">💻 คอมพิวเตอร์ (CBT)</button>
+                    </div>
+                    <small id="cbt-hint" style="color:#d32f2f; display:none; margin-top:5px;">*CBT มีเฉพาะ TGAT และ TPAT3 เท่านั้น</small>
+                </div>
+
+                <div id="venue-results-area" class="venue-results">
+                    <div class="empty-state">กรุณาเลือกวิชาและรูปแบบการสอบ</div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <footer class="floating-footer">
+        <a href="https://x.com/seesar1962" target="_blank" class="vib-vub-btn">
             <span class="x-logo">𝕏</span> แจ้งปัญหาที่นี่เท่านั้น
         </a>
     </footer>
